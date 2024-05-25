@@ -11,7 +11,8 @@ public class Sorting{
     //Priyanshu
     //Nikita
     //Suraj
-    //
+    //Bala Chandra Das
+    //Sagar
     public static void swap(int [] arr,int i, int j){
         int temp = arr[i];
         arr[i]=arr[j];
