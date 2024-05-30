@@ -18,6 +18,7 @@ class Recursion{
         if(n==0) return ans;
         return fact2(n-1, ans*n);
     }
+
     static int fib(int n){
         if(n==0 || n==1) return n;
         return fib(n-1) + fib(n-2);
@@ -30,8 +31,9 @@ class Recursion{
         }
         char ch= s.charAt(0);
         //include ch in ans
-        subSeq(s.substring(1),ans+ch);
+        
         subSeq(s.substring(1),ans);
+        subSeq(s.substring(1),ans+ch);
     }
     //Print all outcomes of a coin flip
     static void coinFlip(int n, String ans){
@@ -42,9 +44,21 @@ class Recursion{
         coinFlip(n-1, ans+"H");
         coinFlip(n-1, ans+"T");
     }
+
+    static void gP(int n, int open, int close, String ans){
+        if(open == n && close == n){
+            System.out.println(ans+" ");
+            return;
+        }
+        if(open>n||close>open)
+            return;
+        gP(n,open+1, close, ans+"(");
+        gP(n,open, close+1, ans+")");
+    }
+
     public static void main(String args[]){
         int n=5;
-        coinFlip(3,"");
+        gP(3, 0, 0, "");
         // System.out.print();
     }
 }
